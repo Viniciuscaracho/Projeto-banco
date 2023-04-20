@@ -1,0 +1,64 @@
+#include <iostream>
+#include <string>
+#include <locale.h>
+#include "contabancaria.h"
+
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "Portuguese");
+	
+    string nome;
+    int cpf, resp;
+    double saldo;
+    double valor;
+    bool sair = false;
+    
+    
+    cout << "Qual o seu nome?"<< endl;
+    cin >> nome;
+    cout << "O CPF, por favor?" << endl;
+    cin >> cpf;
+    ContaBancaria conta(nome, cpf, saldo);
+	ContaBancaria outraConta("Outro titular", 000000, 0.0);
+    
+    while(!sair) {
+        cout << "O que deseja realizar?" << endl<<endl;
+        cout << "Apenas acessar suas informações, pressione 1" << endl;
+        cout << "Fazer um deposito bancário, pressione 2" << endl;
+        cout << "Fazer uma transacao, pressione 3" << endl;
+        cout << "Fazer um saque, pressione 4" << endl;
+        cout << "Fechar aplicativo, pressione 0" << endl;
+        cin >> resp;
+
+        switch(resp) {
+            case 1: conta.exibir_cont(); break;
+            case 2: 
+                cout << "Digite o valor para deposito" << endl;
+                cin >> valor;
+                conta.depositar(valor);
+                cout << "Seu saldo corrente: " << conta.saldo << endl;
+                break;
+            case 3: 
+                cout << "Digite o valor que deseja enviar" << endl;
+                cin >> valor;
+                conta.transacao(valor, outraConta);
+                cout << "Seu saldo corrente: " << conta.saldo<< endl;
+                break;
+            case 4:
+                cout << "Digite o valor de saque" << endl;
+                cin >> valor;
+                conta.saque(valor); 
+                cout << "Seu saldo corrente: " << conta.saldo << endl;
+                break;
+            case 0: 
+                cout << "Fechando..." << endl;
+                sair = true;
+                break;
+            default:
+                cout << "Opção inválida" << endl;
+                break;
+        }
+    }
+    return 0;
+}
