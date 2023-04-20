@@ -1,5 +1,3 @@
-Olá! Aqui está um exemplo de arquivo README para o programa acima:
-
 # Programa de Conta Bancária
 
 Este é um programa de conta bancária simples que permite ao usuário realizar operações bancárias, como depósito, transferência e saque. O programa é executado na linha de comando e usa a linguagem de programação C++.
@@ -40,4 +38,4 @@ A opção 0 permite ao usuário fechar o aplicativo e encerrar a execução do p
 
 ## Créditos
 
-Este programa foi desenvolvido por [nome do desenvolvedor].
+Programa criado por Vinicius Caracho
